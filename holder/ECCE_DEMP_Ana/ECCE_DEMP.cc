@@ -253,9 +253,8 @@ int ECCE_DEMP::Init(PHCompositeNode *topNode)
   h2_nTruth_pxpy_Smeared = new TH2F("nTruth_pxpy_Smeared", "n #frac{#Delta p_{x}}{Truth p_{x}} vs #frac{#Delta p_{y}}{Truth p_{y}}; #frac{#Delta p_{x}}{Truth p_{x}}; #frac{#Delta p_{y}}{Truth p_{y}}", 100, -50, 50, 100, -50, 50);
   gDirectory->cd("../");
 
-  // added by Maggie Kerr, July 28, 2021
-  gDirectory->mkdir("Neutron_LowE_Truth_Info");
-  gDirectory->cd("Neutron_LowE_Truth_Info");
+  /*goDirectory->mkdir("Neutron_lowE_Info"); // added by Maggie Kerr; July 28, 2021
+  goDirectory->cd("Neutron_lowE_Info");
   h1_nlowETruth_E = new TH1F("nlowETruth_E","n #frac{#Delta E}{Truth E} Distribution (%) for < 70 GeV ; %", 100, -50, 50);
   h1_nlowETruth_p = new TH1F("nlowETruth_P","n #frac{#Delta P}{Truth P} Distribution (%) for < 70 GeV ; %", 100, -50, 50);
   h1_nlowETruth_px = new TH1F("nlowETruth_px","n #frac{#Delta px}{Truth py} Distribution (%) for < 70 GeV ; %", 100, -50, 50);
@@ -263,7 +262,7 @@ int ECCE_DEMP::Init(PHCompositeNode *topNode)
   h1_nlowETruth_pz = new TH1F("nlowETruth_pz_","n #frac{#Delta pz}{Truth pz} Distribution (%) for < 70 GeV ; %", 100, -50, 50);
   h1_nlowETruth_theta = new TH1F("nlowETruth_theta","n #frac{#Delta #theta}{Truth #theta} Distribution (%) for < 70 GeV ; %", 100, -50, 50);
   h1_nlowETruth_phi = new TH1F("nlowETruth_phi","n #frac{#Delta #phi}{Truth #phi} Distribution (%) for < 70 GeV ; %", 100, -50, 50);
-  h2_nlowETruth_pxpy = new TH2F("nlowETruth_pxpy","n #frac{#Delta px}{Truth px} vs #frac{#Delta py}{Truth py} Distribution (%) for < 70 GeV ; p_{x} %; p_{y} %", 100, -50, 50, 100, -50, 50);
+  h2_nlowETruth_pxpy = new TH2F("nlowETruth_pxpy","n #frac{#Delta px}{Truth px} vs #frac{#Delta py}{Truth py} Distribution (%) for < 70 GeV ; %", 100, -50, 50, 100, -50, 50);
   h1_nlowETruth_E_Smeared = new TH1F("nlowETruth_E_Smeared","n #frac{#Delta E}{Truth E} Distribution (%) for < 70 GeV (Smeared); %", 100, -50, 50);
   h1_nlowETruth_p_Smeared = new TH1F("nlowETruth_P_Smeared","n #frac{#Delta P}{Truth P} Distribution (%) for < 70 GeV (Smeared); %", 100, -50, 50);
   h1_nlowETruth_px_Smeared = new TH1F("nlowETruth_px_Smeared","n #frac{#Delta px}{Truth px} Distribution (%) for < 70 GeV (Smeared); %", 100, -50, 50);
@@ -271,34 +270,16 @@ int ECCE_DEMP::Init(PHCompositeNode *topNode)
   h1_nlowETruth_pz_Smeared = new TH1F("nlowETruth_pz_Smeared","n #frac{#Delta pz}{Truth pz} Distribution (%) for < 70 GeV (Smeared); %", 100, -50, 50);
   h1_nlowETruth_theta_Smeared = new TH1F("nlowETruth_theta_Smeared","n #frac{#Delta #theta}{Truth #theta} Distribution (%) for < 70 GeV (Smeared); %", 100, -50, 50);
   h1_nlowETruth_phi_Smeared = new TH1F("nlowETruth_phi_Smeared","n #frac{#Delta #phi}{Truth #phi} Distribution (%) for < 70 GeV (Smeared); %", 100, -50, 50);
-  h2_nlowETruth_pxpy_Smeared = new TH2F("nlowETruth_pxpy_Smeared","n #frac{#Delta px}{Truth px} vs #frac{#Delta py}{Truth py} Distribution (%) for < 70 GeV (Smeared); p_{x} %; p_{y} %", 100, -50, 50, 100, -50, 50);
-  gDirectory->cd("../");
+  h2_nlowETruth_pxpy_Smeared = new TH2F("nlowETruth_pxpy_Smeared","n #frac{#Delta px}{Truth px} vs #frac{#Delta py}{Truth py} Distribution (%) for < 70 GeV (Smeared); %", 100, -50, 50, 100, -50, 50);
+  goDirectory->cd("../");
 
-  // added by Maggie Kerr, July 28, 2021
-  gDirectory->mkdir("Pion_NoTrack_Truth_Info");
-  gDirectory->cd("Pion_NoTrack_Truth_Info");
-  h1_piNoTrackTruth_E = new TH1F("piNoTrackTruth_E","#pi Truth E Distribution for No Track Info", 200, 0, 50);
-  h1_piNoTrackTruth_p = new TH1F("piNoTrackTruth_P","#pi Truth p Distribution for No Track Info", 200, 0, 50);
-  h1_piNoTrackTruth_px = new TH1F("piNoTrackTruth_px","#pi Truth p_{x} Distribution for No Track Info", 200, -20, 20);
-  h1_piNoTrackTruth_py = new TH1F("piNoTrackTruth_py_","#pi Truth p_{y} Distribution for No Track Info", 200, -20, 20);
-  h1_piNoTrackTruth_pz = new TH1F("piNoTrackTruth_pz_","#pi Truth p_{z} Distribution for No Track Info", 200, -50, 50);
-  h1_piNoTrackTruth_theta = new TH1F("piNoTrackTruth_theta","#pi Truth #theta Distribution for No Track Info; #theta [deg]", 200, 0, 50);
-  h1_piNoTrackTruth_phi = new TH1F("piNoTrackTruth_phi","#pi Truth #phi Distribution for No Track Info; #phi [deg]", 360, -180, 180);
-  h2_piNoTrackTruth_pxpy = new TH2F("piNoTrackTruth_pxpy","#pi Truth p_{x} vs p_{y} Distribution for No Track Info; p_{x}; p_{y}", 200, -20, 20, 200, -20, 20);
-  gDirectory->cd("../");
+  //goDirectory->mkdir("Pion_NoTrack_Info");
+  //goDirectory->cd("Pion_NoTrack_Info");
+  //goDirectory->cd("../");
 
-  // added by Maggie Kerr, July 28, 2021
-  gDirectory->mkdir("Electron_NoTrack_Truth_Info");
-  gDirectory->cd("Electron_NoTrack_Truth_Info");
-  h1_eNoTrackTruth_E = new TH1F("eNoTrackTruth_E","e Truth E Distribution for No Track Info", 200, 0, 10);
-  h1_eNoTrackTruth_p = new TH1F("eNoTrackTruth_P","e Truth p Distribution for No Track Info", 200, 0, 10);
-  h1_eNoTrackTruth_px = new TH1F("eNoTrackTruth_px","e Truth p_{x} Distribution for No Track Info", 200, -10, 10);
-  h1_eNoTrackTruth_py = new TH1F("eNoTrackTruth_py_","e Truth p_{y} Distribution for No Track Info", 200, -10, 10);
-  h1_eNoTrackTruth_pz = new TH1F("eNoTrackTruth_pz_","e Truth p_{z} Distribution for No Track Info", 200, -10, 0);
-  h1_eNoTrackTruth_theta = new TH1F("eNoTrackTruth_theta","e Truth #theta Distribution for No Track Info; #theta [deg]", 200, 110, 160);
-  h1_eNoTrackTruth_phi = new TH1F("eNoTrackTruth_phi","e Truth #phi Distribution for No Track Info; #phi [deg]", 360, -180, 180);
-  h2_eNoTrackTruth_pxpy = new TH2F("eNoTrackTruth_pxpy","e Truth p_{x} vs p_{y} Distribution for No Track Info; p_{x}; p_{y}", 200, -10, 10, 200, -10, 10);
-  gDirectory->cd("../");
+  //goDirectory->mkdir("Electron_NoTrack_Info");
+  //goDirectory->cd("Electron_NoTrack_Info");
+  //goDirectory->cd("../");*/
 
   gDirectory->mkdir("PMiss_Info");
   gDirectory->cd("PMiss_Info");
@@ -321,20 +302,7 @@ int ECCE_DEMP::Init(PHCompositeNode *topNode)
   h1_gamma_Theta = new TH1F("gamma_Theta", "#gamma #theta Distribution; #theta [deg]", 360, -180, 180);
   h1_gamma_Phi = new TH1F("gamma_Phi", "#gamma #phi Distribution; #phi [deg]", 360, -180, 180);
   gDirectory->cd("../");
-
-  // added by Maggie Kerr, July 29, 2021
-  gDirectory->mkdir("Virtual_Photon_Truth_Info");
-  gDirectory->cd("Virtual_Photon_Truth_Info");
-  h1_gammaTruth_px = new TH1F("gammaTruth_px", "#gamma #frac{#Delta p_{x}}{Truth p_{x}} Distribution; (%)", 100, -50, 50);
-  h1_gammaTruth_py = new TH1F("gammaTruth_py", "#gamma #frac{#Delta p_{y}}{Truth p_{y}} Distribution; (%)", 100, -50, 50);
-  h1_gammaTruth_pz = new TH1F("gammaTruth_pz", "#gamma #frac{#Delta p_{z}}{Truth p_{z}} Distribution; (%)", 100, -50, 50); 
-  h1_gammaTruth_p = new TH1F("gammaTruth_p", "#gamma #frac{#Delta p}{Truth p} Distribution; (%)", 100, -50, 50);
-  h1_gammaTruth_E = new TH1F("gammaTruth_E", "#gamma #frac{#Delta E}{Truth E} Distribution; (%)", 100, -50, 50);
-  h1_gammaTruth_Theta = new TH1F("gammaTruth_Theta", "#gamma #frac{#Delta #theta}{Truth #theta} Distribution; (%)", 100, -50, 50);
-  h1_gammaTruth_Phi = new TH1F("gammaTruth_Phi", "#gamma #frac{#Delta #phi}{Truth #phi} Distribution; (%)", 100, -50, 50);
-  h2_gammaTruth_pxpy = new TH2F("gammaTruth_pxpy", "#gamma #frac{#Delta p_{x}}{Truth p_{x}} vs #frac{#Delta p_{y}}{Truth p_{y}} Distribution; (%); (%)", 100, -50, 50, 100, -50, 50);
-  gDirectory->cd("../");
-
+ 
   gDirectory->mkdir("Kinematics_Info");
   gDirectory->cd("Kinematics_Info");
   h1_Q2_Dist = new TH1F("Q2_Dist", "Q^{2} Distribution", 200, 0, 50);
@@ -342,26 +310,10 @@ int ECCE_DEMP::Init(PHCompositeNode *topNode)
   h1_t_Dist = new TH1F("t_Dist", "t Distribution", 100, 0, 10);
   h1_xb_Dist = new TH1F("xb_Dist", "x_{b} Distribution", 100, 0, 1);
   h1_xi_Dist = new TH1F("xi_Dist", "#xi Distribution", 100, 0, 1);
-  h2_Q2vnTheta_Dist = new TH2F("Q2vnTheta_Dist","Q^{2} v n #theta Distribution; Q^2 [GeV^{2}]; #theta [deg]", 200, 0, 50, 200, 0, 3); // added by Maggie Kerr, July 29, 2021 
-  gDirectory->cd("../");
-
-  // added by Maggie Kerr, July 29, 2021 
-  gDirectory->mkdir("Kinematics_Truth_Info");
-  gDirectory->cd("Kinematics_Truth_Info");
-  h1_Q2Truth_Dist = new TH1F("Q2Truth_Dist", "#frac{#Delta Q^{2}}{Truth Q^{2}} Distribution; (%)", 100, -50, 50);
-  h1_WTruth_Dist = new TH1F("WTruth_Dist", "#frac{#Delta W}{Truth W} Distribution; (%)", 100, -50, 50);
-  h1_tTruth_Dist = new TH1F("tTruth_Dist", "#frac{#Delta t}{Truth t} Distribution; (%)", 100, -50, 50);
-  h1_xbTruth_Dist = new TH1F("xbTruth_Dist", "#frac{#Delta x_{b}}{Truth x_{b}} Distribution; (%)", 100, -50, 50);
-  h1_xiTruth_Dist = new TH1F("xiTruth_Dist", "#frac{#Delta #xi}{Truth #xi} Distribution; (%)", 100, -50, 50);
-  h2_Q2vnThetaTruth_Dist = new TH2F("Q2vnThetaTruth_Dist","#frac{#Delta Q^{2}}{Truth Q^{2}} v n #frac{#Delta #theta}{Truth #theta} Distribution; (%); (%)", 100, -50, 50, 100, -50, 50); 
   gDirectory->cd("../");
 
   h2_ZDC_XY = new TH2F("ZDC_XY", "ZDC XY", 200, -50, 50, 200, -50, 50);
   h2_ZDC_XY_Smeared = new TH2F("ZDC_XY_Smeared", "ZDC XY", 200, -50, 50, 200, -50, 50);
-
-  // added by Maggie Kerr, July 29, 2021
-  h2_ZDC_XY_lowE = new TH2F("ZDC_XY_lowE", "ZDC XY for < 70 GeV", 200, -50, 50, 200, -50, 50);
-  h2_ZDC_XY_lowE_Smeared = new TH2F("ZDC_XY_lowE_Smeared", "ZDC XY for < 70 GeV (Smeared)",200, -50, 50, 200, -50, 50);
 
   return Fun4AllReturnCodes::EVENT_OK;
 }
@@ -376,6 +328,7 @@ int ECCE_DEMP::InitRun(PHCompositeNode *topNode)
 //____________________________________________________________________________..
 int ECCE_DEMP::process_event(PHCompositeNode *topNode)
 {
+  
   ZDC_hit = 0;
   EEMC_hit = 0;
   Double_t Pi = TMath::ACos(-1);
@@ -543,15 +496,6 @@ int ECCE_DEMP::process_event(PHCompositeNode *topNode)
     h1_t_Dist->Fill(t);
     h1_xb_Dist->Fill(xb);
     h1_xi_Dist->Fill(xi);
-    h2_Q2vnTheta_Dist->Fill(Q2,n4Vect.Theta()*TMath::RadToDeg()); // added by Maggie Kerr, July 29, 2021 
-
-    // added by Maggie Kerr, July 29, 2021
-    h1_Q2Truth_Dist->Fill(((Q2-Q2_truth)/Q2_truth)*100);
-    h1_WTruth_Dist->Fill(((W-W_truth)/W_truth)*100);
-    h1_tTruth_Dist->Fill(((t-t_truth)/t_truth)*100);
-    h1_xbTruth_Dist->Fill(((xb-xb_truth)/xb_truth)*100);
-    h1_xiTruth_Dist->Fill(((xi-xi_truth)/xi_truth)*100);
-    h2_Q2vnThetaTruth_Dist->Fill(((Q2-Q2_truth)/Q2_truth)*100,(n4Vect.Theta()-n4VectTruth.Theta())/(n4VectTruth.Theta())*100); 
 
     h1_piTruth_p->Fill((pi4Vect.P()-pi4VectTruth.P())/(pi4VectTruth.P())*100);
     h1_piTruth_px->Fill((pi4Vect.Px()-pi4VectTruth.Px())/(pi4VectTruth.Px())*100);
@@ -584,15 +528,6 @@ int ECCE_DEMP::process_event(PHCompositeNode *topNode)
     h1_nTruth_py_Smeared->Fill((n4VectSmeared.Py()-n4VectTruth.Py())/(n4VectTruth.Py())*100);
     h1_nTruth_pz_Smeared->Fill((n4VectSmeared.Pz()-n4VectTruth.Pz())/(n4VectTruth.Pz())*100);
     h1_nTruth_E_Smeared->Fill((n4VectSmeared.E()-n4VectTruth.E())/(n4VectTruth.E())*100);
-    // added by Maggie Kerr, July 29, 2021
-    h1_gammaTruth_px->Fill(((virtphoton4Vect.Px()-virtphoton4VectTruth.Px())/virtphoton4VectTruth.Px())*100);
-    h1_gammaTruth_py->Fill(((virtphoton4Vect.Py()-virtphoton4VectTruth.Py())/virtphoton4VectTruth.Py())*100);
-    h1_gammaTruth_pz->Fill(((virtphoton4Vect.Pz()-virtphoton4VectTruth.Pz())/virtphoton4VectTruth.Pz())*100);
-    h1_gammaTruth_p->Fill(((virtphoton4Vect.P()-virtphoton4VectTruth.P())/virtphoton4VectTruth.P())*100);
-    h1_gammaTruth_E->Fill(((virtphoton4Vect.E()-virtphoton4VectTruth.E())/virtphoton4VectTruth.E())*100);
-    h1_gammaTruth_Theta->Fill(((virtphoton4Vect.Theta()-virtphoton4VectTruth.Theta())/virtphoton4VectTruth.Theta())*100);
-    h1_gammaTruth_Phi->Fill(((virtphoton4Vect.Phi()-virtphoton4VectTruth.Phi())/virtphoton4VectTruth.Phi())*100);
-    h2_gammaTruth_pxpy->Fill(((virtphoton4Vect.Px()-virtphoton4VectTruth.Px())/virtphoton4VectTruth.Px())*100,((virtphoton4Vect.Py()-virtphoton4VectTruth.Py())/virtphoton4VectTruth.Py())*100);
     
     h2_ZDC_XY->Fill(nZDCPos.x()-90, nZDCPos.y());
     h2_ZDC_XY_Smeared->Fill(nZDCPosSmeared.x()-90, nZDCPosSmeared.y());
@@ -617,52 +552,24 @@ int ECCE_DEMP::process_event(PHCompositeNode *topNode)
     h2_eTruth_pxpy_Smeared->Fill((e4VectSmeared.Px()-e4VectTruth.Px())/(e4VectTruth.Px())*100, (e4VectSmeared.Py()-e4VectTruth.Py())/(e4VectTruth.Py())*100);
     h2_nTruth_pxpy_Smeared->Fill((n4VectSmeared.Px()-n4VectTruth.Px())/(n4VectTruth.Px())*100, (n4VectSmeared.Py()-n4VectTruth.Py())/(n4VectTruth.Py())*100);
 
-   // added by Maggie Kerr, July 28, 2021
-   if (nEDep < 70) {
-   h1_nlowETruth_E->Fill(((n4Vect.E()-n4VectTruth.E())/(n4VectTruth.E()))*100);
-   h1_nlowETruth_p->Fill(((n4Vect.P()-n4VectTruth.P())/(n4VectTruth.P()))*100);
-   h1_nlowETruth_px->Fill(((n4Vect.Px()-n4VectTruth.Px())/(n4VectTruth.Px()))*100);
-   h1_nlowETruth_py->Fill(((n4Vect.Py()-n4VectTruth.Py())/(n4VectTruth.Py()))*100);
-   h1_nlowETruth_pz->Fill(((n4Vect.Pz()-n4VectTruth.Pz())/(n4VectTruth.Pz()))*100);
-   h1_nlowETruth_theta->Fill((((n4Vect.Theta()*TMath::RadToDeg())-(n4VectTruth.Theta()*TMath::RadToDeg()))/((n4VectTruth.Theta()*TMath::RadToDeg())))*100);
-   h1_nlowETruth_phi->Fill((((n4Vect.Phi()*TMath::RadToDeg())-(n4VectTruth.Phi()*TMath::RadToDeg()))/((n4VectTruth.Phi()*TMath::RadToDeg())))*100);
-   h2_nlowETruth_pxpy->Fill(((n4Vect.Px()-n4VectTruth.Px())/(n4VectTruth.Px()))*100,((n4Vect.Py()-n4VectTruth.Py())/(n4VectTruth.Py()))*100);
-   h1_nlowETruth_E_Smeared->Fill(((n4VectSmeared.E()-n4VectTruth.E())/(n4VectTruth.E()))*100);
-   h1_nlowETruth_p_Smeared->Fill(((n4VectSmeared.P()-n4VectTruth.P())/(n4VectTruth.P()))*100);
-   h1_nlowETruth_px_Smeared->Fill(((n4VectSmeared.Px()-n4VectTruth.Px())/(n4VectTruth.Px()))*100);
-   h1_nlowETruth_py_Smeared->Fill(((n4VectSmeared.Py()-n4VectTruth.Py())/(n4VectTruth.Py()))*100);
-   h1_nlowETruth_pz_Smeared->Fill(((n4VectSmeared.Pz()-n4VectTruth.Pz())/(n4VectTruth.Pz()))*100);
-   h1_nlowETruth_theta_Smeared->Fill((((n4VectSmeared.Theta()*TMath::RadToDeg())-(n4VectTruth.Theta()*TMath::RadToDeg()))/((n4VectTruth.Theta()*TMath::RadToDeg())))*100);
-   h1_nlowETruth_phi_Smeared->Fill((((n4VectSmeared.Phi()*TMath::RadToDeg())-(n4VectTruth.Phi()*TMath::RadToDeg()))/((n4VectTruth.Phi()*TMath::RadToDeg())))*100);
-   h2_nlowETruth_pxpy_Smeared->Fill(((n4VectSmeared.Px()-n4VectTruth.Px())/(n4VectTruth.Px()))*100,((n4VectSmeared.Py()-n4VectTruth.Py())/(n4VectTruth.Py()))*100);
-
-   // added by Maggie Kerr, July 29, 2021
-   h2_ZDC_XY_lowE->Fill(nZDCPos.x()-90,nZDCPos.y());
-   h2_ZDC_XY_lowE_Smeared->Fill(nZDCPosSmeared.x()-90,nZDCPosSmeared.y());
-   }
-
-   // added by Maggie Kerr, July 28, 2021
-   if (Check_e(topNode) == false){ // need the correct condition for this
-   std::cout << "ok" << endl;
-   h1_eNoTrackTruth_E->Fill(e4VectTruth.E());
-   h1_eNoTrackTruth_p->Fill(e4VectTruth.P());
-   h1_eNoTrackTruth_px->Fill(e4VectTruth.Px());
-   h1_eNoTrackTruth_py->Fill(e4VectTruth.Py());
-   h1_eNoTrackTruth_pz->Fill(e4VectTruth.Pz());
-   h1_eNoTrackTruth_theta->Fill(e4VectTruth.Theta());
-   h1_eNoTrackTruth_phi->Fill(e4VectTruth.Phi());
-   h2_eNoTrackTruth_pxpy->Fill(e4VectTruth.Px(),e4VectTruth.Py());
-   }
-   if (Check_Pi(topNode) == false){ // need the correct condition for this
-   h1_piNoTrackTruth_E->Fill(pi4VectTruth.E());
-   h1_piNoTrackTruth_p->Fill(pi4VectTruth.P());
-   h1_piNoTrackTruth_px->Fill(pi4VectTruth.Px());
-   h1_piNoTrackTruth_py->Fill(pi4VectTruth.Py());
-   h1_piNoTrackTruth_pz->Fill(pi4VectTruth.Pz());
-   h1_piNoTrackTruth_theta->Fill(pi4VectTruth.Theta());
-   h1_piNoTrackTruth_phi->Fill(pi4VectTruth.Phi());
-   h2_piNoTrackTruth_pxpy->Fill(pi4VectTruth.Px(),pi4VectTruth.Py());
-   }
+    /*if (nEDep < 70) {
+    h1_nlowETruth_E->Fill(((n4Vect.E()-n4VectTruth.E())/(n4VectTruth.E()))*100);
+    h1_nlowETruth_p->Fill(((n4Vect.P()-n4VectTruth.P())/(n4VectTruth.P()))*100);
+    h1_nlowETruth_px->Fill(((n4Vect.Px()-n4VectTruth.Px())/(n4VectTruth.Px()))*100);
+    h1_nlowETruth_py->Fill(((n4Vect.Py()-n4VectTruth.Py())/(n4VectTruth.Py()))*100);
+    h1_nlowETruth_pz->Fill(((n4Vect.Pz()-n4VectTruth.Pz())/(n4VectTruth.Pz()))*100);
+    h1_nlowETruth_theta->Fill((((n4Vect.Theta()*TMath::RadToDeg())-(n4VectTruth.Theta()*TMath::RadToDeg()))/((n4VectTruth.Theta()*TMath::RadToDeg())))*100);
+    h1_nlowETruth_phi->Fill((((n4Vect.Phi()*TMath::RadToDeg())-(n4VectTruth.Phi()*TMath::RadToDeg()))/((n4VectTruth.Phi()*TMath::RadToDeg())))*100);
+    h2_nlowETruth_pxpy->Fill(((n4Vect.Px()-n4VectTruth.Px())/(n4VectTruth.Px()))*100,((n4Vect.Py()-n4VectTruth.Py())/(n4VectTruth.Py()))*100);
+    h1_nlowETruth_E_Smeared->Fill(((n4VectSmeared.E()-n4VectTruth.E())/(n4VectTruth.E()))*100);
+    h1_nlowETruth_p_Smeared->Fill(((n4VectSmeared.P()-n4VectTruth.P())/(n4VectTruth.P()))*100);
+    h1_nlowETruth_px_Smeared->Fill(((n4VectSmeared.Px()-n4VectTruth.Px())/(n4VectTruth.Px()))*100);
+    h1_nlowETruth_py_Smeared->Fill(((n4VectSmeared.Py()-n4VectTruth.Py())/(n4VectTruth.Py()))*100);
+    h1_nlowETruth_pz_Smeared->Fill(((n4VectSmeared.Pz()-n4VectTruth.Pz())/(n4VectTruth.Pz()))*100);
+    h1_nlowETruth_theta_Smeared->Fill((((n4VectSmeared.Theta()*TMath::RadToDeg())-(n4VectTruth.Theta()*TMath::RadToDeg()))/((n4VectTruth.Theta()*TMath::RadToDeg())))*100);
+    h1_nlowETruth_phi_Smeared->Fill((((n4VectSmeared.Phi()*TMath::RadToDeg())-(n4VectTruth.Phi()*TMath::RadToDeg()))/((n4VectTruth.Phi()*TMath::RadToDeg())))*100);
+    h2_nlowETruth_pxpy_Smeared->Fill(((n4VectSmeared.Px()-n4VectTruth.Px())/(n4VectTruth.Px()))*100,((n4VectSmeared.Py()-n4VectTruth.Py())/(n4VectTruth.Py()))*100);
+    }*/
 
   }
 
@@ -802,81 +709,6 @@ bool ECCE_DEMP::Check_ePi(PHCompositeNode* topNode)
   }
 }
 
-// added by Maggie Kerr, July 30, 2021
-//***************************************************
-
-bool ECCE_DEMP::Check_e(PHCompositeNode* topNode)
-{
-  SvtxTrackMap* trackmap = findNode::getClass<SvtxTrackMap>(topNode, "SvtxTrackMap");
-  if (!trackmap)
-    {
-      trackmap = findNode::getClass<SvtxTrackMap>(topNode, "TrackMap");
-      if (!trackmap)
-    	{
-    	  cout
-    	    << "ECCE_DEMP::process_event - Error can not find DST trackmap node SvtxTrackMap" << endl;
-    	  exit(-1);
-    	}
-    }
-  int nTracks = 0;
-  Bool_t ElecTrack = kFALSE;
-  // Iterate over tracks
-  for (SvtxTrackMap::Iter iter = trackmap->begin();
-       iter != trackmap->end();
-       ++iter)
-    {
-      SvtxTrack* track = iter->second;
-      nTracks++;
-      if (track->get_pz() < 0  && track->get_charge() == -1 ){ // -ve z direction -> electrons, crappy way of selecting them for now w/o truth info
-	ElecTrack = kTRUE;
-      }
-    }
-  
-  if(ElecTrack == kTRUE){ // Electron track
-    return true;
-  }
-  else{
-    return false;
-  }
-}
-
-// added by Maggie Kerr, July 30, 2021
-//***************************************************
-
-bool ECCE_DEMP::Check_Pi(PHCompositeNode* topNode)
-{
-  SvtxTrackMap* trackmap = findNode::getClass<SvtxTrackMap>(topNode, "SvtxTrackMap");
-  if (!trackmap)
-    {
-      trackmap = findNode::getClass<SvtxTrackMap>(topNode, "TrackMap");
-      if (!trackmap)
-    	{
-    	  cout
-    	    << "ECCE_DEMP::process_event - Error can not find DST trackmap node SvtxTrackMap" << endl;
-    	  exit(-1);
-    	}
-    }
-  int nTracks = 0;
-  Bool_t PionTrack = kFALSE;
-  // Iterate over tracks
-  for (SvtxTrackMap::Iter iter = trackmap->begin();
-       iter != trackmap->end();
-       ++iter)
-    {
-      SvtxTrack* track = iter->second;
-      nTracks++;
-      if ( track->get_pz() > 0 && track->get_charge() == 1){ // +ve z direction -> pions, crappy way of selecting them for now w/o truth info
-	PionTrack = kTRUE;
-      }
-    }
-  
-  if(PionTrack == kTRUE){ // Pion track
-    return true;
-  }
-  else{
-    return false;
-  }
-}
 
 //***************************************************
 

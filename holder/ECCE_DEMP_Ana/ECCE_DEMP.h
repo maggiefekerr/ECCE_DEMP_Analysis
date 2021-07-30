@@ -64,8 +64,6 @@ class ECCE_DEMP : public SubsysReco
   void Print(const std::string &what = "ALL") const override;
 
   bool Check_ePi(PHCompositeNode *);
-  bool Check_e(PHCompositeNode *);
-  bool Check_Pi(PHCompositeNode *);
   bool Check_n(PHCompositeNode *);
 
   void use_initial_vertex(const bool b = true) {initial_vertex = b;}
@@ -222,7 +220,6 @@ class ECCE_DEMP : public SubsysReco
   TH1F* h1_t_Dist;
   TH1F* h1_xb_Dist;
   TH1F* h1_xi_Dist;
-  TH2F* h2_Q2vnTheta_Dist;
 
   // Resolution test plots for unsmeared vectors
   TH1F* h1_piTruth_p;
@@ -281,8 +278,8 @@ class ECCE_DEMP : public SubsysReco
   TH2F* h2_piTruth_pxpy_Smeared;
   TH2F* h2_nTruth_pxpy_Smeared;
 
-
-  // added by Maggie Kerr, July 28, 2021
+/*
+ // Low Energy Hits in ZDC (added by Maggie Kerr, July 28)
   TH1F* h1_nlowETruth_E;
   TH1F* h1_nlowETruth_p;
   TH1F* h1_nlowETruth_px;
@@ -298,50 +295,6 @@ class ECCE_DEMP : public SubsysReco
   TH1F* h1_nlowETruth_pz_Smeared;
   TH1F* h1_nlowETruth_theta_Smeared;
   TH1F* h1_nlowETruth_phi_Smeared;
-  TH2F* h2_nlowETruth_pxpy_Smeared;
-
-  // added by Maggie Kerr, July 28, 2021
-  TH1F* h1_eNoTrackTruth_E;
-  TH1F* h1_eNoTrackTruth_p;
-  TH1F* h1_eNoTrackTruth_px;
-  TH1F* h1_eNoTrackTruth_py;
-  TH1F* h1_eNoTrackTruth_pz;
-  TH1F* h1_eNoTrackTruth_theta;
-  TH1F* h1_eNoTrackTruth_phi;
-  TH2F* h2_eNoTrackTruth_pxpy;
-
-  // added by Maggie Kerr, July 28, 2021
-  TH1F* h1_piNoTrackTruth_E;
-  TH1F* h1_piNoTrackTruth_p;
-  TH1F* h1_piNoTrackTruth_px;
-  TH1F* h1_piNoTrackTruth_py;
-  TH1F* h1_piNoTrackTruth_pz;
-  TH1F* h1_piNoTrackTruth_theta;
-  TH1F* h1_piNoTrackTruth_phi;
-  TH2F* h2_piNoTrackTruth_pxpy;
-
-  // added by Maggie Kerr, July 29, 2021
-  TH2F* h2_ZDC_XY_lowE;
-  TH2F* h2_ZDC_XY_lowE_Smeared;
-
-  // added by Maggie Kerr, July 29, 2021
-  TH1F* h1_Q2Truth_Dist;
-  TH1F* h1_WTruth_Dist;
-  TH1F* h1_tTruth_Dist;
-  TH1F* h1_xbTruth_Dist;
-  TH1F* h1_xiTruth_Dist;
-  TH2F* h2_Q2vnThetaTruth_Dist;
-
-  // added by Maggie Kerr, July 29, 2021
-  TH1F* h1_gammaTruth_px;
-  TH1F* h1_gammaTruth_py;
-  TH1F* h1_gammaTruth_pz;
-  TH1F* h1_gammaTruth_p;
-  TH1F* h1_gammaTruth_E;
-  TH1F* h1_gammaTruth_Theta;
-  TH1F* h1_gammaTruth_Phi;
-  TH2F* h2_gammaTruth_pxpy;
- 
-};
+  TH2F* h2_nlowETruth_pxpy_Smeared;*/
 
 #endif // ECCE_DEMP_ANA_H

@@ -1,0 +1,49 @@
+############################
+###### Stephen JD Kay ######
+### University of Regina ###
+######## 31/05/21 ##########
+############################
+
+This repository contains (or will contain) a simple analysis module for our DEMP events after they have passed through the ECCE fun4all simulation.
+
+Within the virtual machine (VM) -
+cd ~/
+source setup.sh
+mkdir work
+cd work
+git clone https://github.com/ECCE-EIC/macros
+git clone https://github.com/ECCE-EIC/tutorials
+mkdir ECCE_DEMP
+cd ECCE_DEMP
+CreateSubsysRecoModule.pl ECCE_DEMP
+cp ~/work/tutorials/CaloAna/src/*.[sa]* .
+cp ~/work/ECCE_DEMP_Analysis/ECCE_DEMP_Ana/configure.ac ./
+cp ~/work/ECCE_DEMP_Analysis/ECCE_DEMP_Ana/Makefile.am ./
+chmod +x autogen.sh
+mkdir build
+cd build
+../autogen.sh --prefix=$MYINSTALL
+make install
+
+### Now - copy in the latest versions of the actual script and rebuild the module
+
+cp /home/fun4all/work/ECCE_DEMP_Analysis/ECCE_DEMP_Ana/ECCE_DEMP.* ../
+make install
+
+### Do this whenever you want to actually re-build the plugin!
+
+cd /home/fun4all/work/macros/detectors/EICDetector
+cp ~/work/ECCE_DEMP_Analysis/main_macro/G4_User.C .
+cp ~/work/ECCE_DEMP_Analysis/main_macro/Fun4all_reana.C .
+
+
+##################################
+##### EIC Smear Instructions #####
+##################################
+
+To process files through EIC smear and retain the weight, execute -
+
+export EIC_LEVEL=dev
+source /cvmfs/eic.opensciencegrid.org/x8664_sl7/MCEG/releases/etc/eic_bash.sh
+
+before processing EIC smear.
