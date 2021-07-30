@@ -223,6 +223,12 @@ class ECCE_DEMP : public SubsysReco
   TH1F* h1_xb_Dist;
   TH1F* h1_xi_Dist;
   TH2F* h2_Q2vnTheta_Dist;
+  // added by Maggie Kerr, July 30, 2021
+  TH2F* h2_xbvQ2_Dist;
+  TH2F* h2_tvQ2_Dist;
+  TH2F* h2_WvQ2_Dist;
+  TH2F* h2_xbvt_Dist;
+  TH2F* h2_tvxi_Dist;  
 
   // Resolution test plots for unsmeared vectors
   TH1F* h1_piTruth_p;
@@ -341,6 +347,50 @@ class ECCE_DEMP : public SubsysReco
   TH1F* h1_gammaTruth_Theta;
   TH1F* h1_gammaTruth_Phi;
   TH2F* h2_gammaTruth_pxpy;
+
+  // added by Maggie Kerr, July 30, 2021
+  // Neutrons
+  TH2F* h2_ThetavP_0_5_n;
+  TH2F* h2_ThetavP_5_625_n;
+  TH2F* h2_ThetavP_625_75_n;
+  TH2F* h2_ThetavP_75_875_n;
+  TH2F* h2_ThetavP_875_10_n;
+  TH2F* h2_ThetavP_10_1125_n;
+  TH2F* h2_ThetavP_1125_125_n;
+  TH2F* h2_ThetavP_125_1375_n;
+  TH2F* h2_ThetavP_1375_15_n;
+  TH2F* h2_ThetavP_15_20_n;
+  TH2F* h2_ThetavP_20_25_n;
+  TH2F* h2_ThetavP_25_30_n;
+  TH2F* h2_ThetavP_30_35_n;
+  // Electrons
+  TH2F* h2_ThetavP_0_5_e;
+  TH2F* h2_ThetavP_5_625_e;
+  TH2F* h2_ThetavP_625_75_e;
+  TH2F* h2_ThetavP_75_875_e;
+  TH2F* h2_ThetavP_875_10_e;
+  TH2F* h2_ThetavP_10_1125_e;
+  TH2F* h2_ThetavP_1125_125_e;
+  TH2F* h2_ThetavP_125_1375_e;
+  TH2F* h2_ThetavP_1375_15_e;
+  TH2F* h2_ThetavP_15_20_e;
+  TH2F* h2_ThetavP_20_25_e;
+  TH2F* h2_ThetavP_25_30_e;
+  TH2F* h2_ThetavP_30_35_e;
+  // Pions
+  TH2F* h2_ThetavP_0_5_pi;
+  TH2F* h2_ThetavP_5_625_pi;
+  TH2F* h2_ThetavP_625_75_pi;
+  TH2F* h2_ThetavP_75_875_pi;
+  TH2F* h2_ThetavP_875_10_pi;
+  TH2F* h2_ThetavP_10_1125_pi;
+  TH2F* h2_ThetavP_1125_125_pi;
+  TH2F* h2_ThetavP_125_1375_pi;
+  TH2F* h2_ThetavP_1375_15_pi;
+  TH2F* h2_ThetavP_15_20_pi;
+  TH2F* h2_ThetavP_20_25_pi;
+  TH2F* h2_ThetavP_25_30_pi;
+  TH2F* h2_ThetavP_30_35_pi;
  
 };
 

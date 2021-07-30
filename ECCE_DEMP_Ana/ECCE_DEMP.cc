@@ -342,7 +342,13 @@ int ECCE_DEMP::Init(PHCompositeNode *topNode)
   h1_t_Dist = new TH1F("t_Dist", "t Distribution", 100, 0, 10);
   h1_xb_Dist = new TH1F("xb_Dist", "x_{b} Distribution", 100, 0, 1);
   h1_xi_Dist = new TH1F("xi_Dist", "#xi Distribution", 100, 0, 1);
-  h2_Q2vnTheta_Dist = new TH2F("Q2vnTheta_Dist","Q^{2} v n #theta Distribution; Q^2 [GeV^{2}]; #theta [deg]", 200, 0, 50, 200, 0, 3); // added by Maggie Kerr, July 29, 2021 
+  h2_Q2vnTheta_Dist = new TH2F("Q2vnTheta_Dist","Q^{2} v n #theta Distribution; Q^2 [GeV^{2}]; #theta [deg]", 200, 0, 50, 200, 0, 3); // added by Maggie Kerr, July 29, 2021
+  // added by Maggie Kerr, July 30, 2021
+  h2_xbvQ2_Dist = new TH2F("xbvQ2_Dist","x_{b} v Q^{2} Distribution; x_{b}; Q^{2} [GeV^{2}]", 200, 0, 0.6, 200, 0, 30);
+  h2_tvQ2_Dist = new TH2F("tvQ2_Dist","t v Q^{2} Distribution; t [GeV^{2}]; Q^{2} [GeV^{2}]", 200, 0, 0.6, 200, 0, 30);
+  h2_WvQ2_Dist = new TH2F("WvQ2_Dist","W v Q^{2} Distribution; W [GeV]; Q^{2} [GeV^{2}]", 200, 0, 12, 200, 0, 30);
+  h2_xbvt_Dist = new TH2F("xbvt_Dist","x_{b} v t Distribution; x_{b}; t [GeV^{2}]", 200, 0, 0.6, 200, 0, 0.6);
+  h2_tvxi_Dist = new TH2F("tvxi_Dist","t v #xi Distribution; t [GeV^{2}]; #xi", 200, 0, 0.6, 200, 0, 0.4);  
   gDirectory->cd("../");
 
   // added by Maggie Kerr, July 29, 2021 
@@ -354,6 +360,53 @@ int ECCE_DEMP::Init(PHCompositeNode *topNode)
   h1_xbTruth_Dist = new TH1F("xbTruth_Dist", "#frac{#Delta x_{b}}{Truth x_{b}} Distribution; (%)", 100, -50, 50);
   h1_xiTruth_Dist = new TH1F("xiTruth_Dist", "#frac{#Delta #xi}{Truth #xi} Distribution; (%)", 100, -50, 50);
   h2_Q2vnThetaTruth_Dist = new TH2F("Q2vnThetaTruth_Dist","#frac{#Delta Q^{2}}{Truth Q^{2}} v n #frac{#Delta #theta}{Truth #theta} Distribution; (%); (%)", 100, -50, 50, 100, -50, 50); 
+  gDirectory->cd("../");
+
+  // added by Maggie Kerr, July 30, 2021
+  gDirectory->mkdir("Kinematic_Coverage");
+  gDirectory->cd("Kinematic_Coverage");
+  // Neutrons
+  h2_ThetavP_0_5_n = new TH2F("ThetavP_0_5_n","n #theta v P for 0 <= Q^{2} < 5; #theta [deg]; p [GeV/c]", 200, 0, 3, 200, 0, 100);
+  h2_ThetavP_5_625_n = new TH2F("ThetavP_5_625_n","n #theta v P for 5 <= Q^{2} < 6.25; #theta [deg]; p [GeV/c]", 200, 0, 3, 200, 0, 100);
+  h2_ThetavP_625_75_n = new TH2F("ThetavP_625_75_n","n #theta v P for 6.25 <= Q^{2} < 7.5; #theta [deg]; p [GeV/c]", 200, 0, 3, 200, 0, 100);
+  h2_ThetavP_75_875_n = new TH2F("ThetavP_75_875_n","n #theta v P for 7.5 <= Q^{2} < 8.75; #theta [deg]; p [GeV/c]", 200, 0, 3, 200, 0, 100);
+  h2_ThetavP_875_10_n = new TH2F("ThetavP_875_10_n","n #theta v P for 8.75 <= Q^{2} < 10; #theta [deg]; p [GeV/c]", 200, 0, 3, 200, 0, 100);
+  h2_ThetavP_10_1125_n = new TH2F("ThetavP_10_1125_n","n #theta v P for 10 <= Q^{2} < 11.25; #theta [deg]; p [GeV/c]", 200, 0, 3, 200, 0, 100);
+  h2_ThetavP_1125_125_n = new TH2F("ThetavP_1125_125_n","n #theta v P for 11.25 <= Q^{2} < 12.5; #theta [deg]; p [GeV/c]", 200, 0, 3, 200, 0, 100);
+  h2_ThetavP_125_1375_n = new TH2F("ThetavP_125_1375_n","n #theta v P for 12.5 <= Q^{2} < 13.75; #theta [deg]; p [GeV/c]", 200, 0, 3, 200, 0, 100);
+  h2_ThetavP_1375_15_n = new TH2F("ThetavP_1375_15_n","n #theta v P for 13.75 <= Q^{2} < 15; #theta [deg]; p [GeV/c]", 200, 0, 3, 200, 0, 100);
+  h2_ThetavP_15_20_n = new TH2F("ThetavP_15_20_n","n #theta v P for 15 <= Q^{2} < 20; #theta [deg]; p [GeV/c]", 200, 0, 3, 200, 0, 100);
+  h2_ThetavP_20_25_n = new TH2F("ThetavP_20_25_n","n #theta v P for 20 <= Q^{2} < 25; #theta [deg]; p [GeV/c]", 200, 0, 3, 200, 0, 100);
+  h2_ThetavP_25_30_n = new TH2F("ThetavP_25_30_n","n #theta v P for 25 <= Q^{2} < 30; #theta [deg]; p [GeV/c]", 200, 0, 3, 200, 0, 100);
+  h2_ThetavP_30_35_n = new TH2F("ThetavP_30_35_n","n #theta v P for 30 <= Q^{2} < 35; #theta [deg]; p [GeV/c]", 200, 0, 3, 200, 0, 100);
+  // Electrons
+  h2_ThetavP_0_5_e = new TH2F("ThetavP_0_5_e","e' #theta v P for 0 <= Q^{2} < 5; #theta [deg]; p [GeV/c]", 200, 110, 160, 200, 0, 10);
+  h2_ThetavP_5_625_e = new TH2F("ThetavP_5_625_e","e' #theta v P for 5 <= Q^{2} < 6.25; #theta [deg]; p [GeV/c]", 200, 110, 160, 200, 0, 10);
+  h2_ThetavP_625_75_e = new TH2F("ThetavP_625_75_e","e' #theta v P for 6.25 <= Q^{2} < 7.5; #theta [deg]; p [GeV/c]", 200, 110, 160, 200, 0, 10);
+  h2_ThetavP_75_875_e = new TH2F("ThetavP_75_875_e","e' #theta v P for 7.5 <= Q^{2} < 8.75; #theta [deg]; p [GeV/c]", 200, 110, 160, 200, 0, 10);
+  h2_ThetavP_875_10_e = new TH2F("ThetavP_875_10_e","e' #theta v P for 8.75 <= Q^{2} < 10; #theta [deg]; p [GeV/c]", 200, 110, 160, 200, 0, 10);
+  h2_ThetavP_10_1125_e = new TH2F("ThetavP_10_1125_e","e' #theta v P for 10 <= Q^{2} < 11.25; #theta [deg]; p [GeV/c]", 200, 110, 160, 200, 0, 10);
+  h2_ThetavP_1125_125_e = new TH2F("ThetavP_1125_125_e","e' #theta v P for 11.25 <= Q^{2} < 12.5; #theta [deg]; p [GeV/c]", 200, 110, 160, 200, 0, 10);
+  h2_ThetavP_125_1375_e = new TH2F("ThetavP_125_1375_e","e' #theta v P for 12.5 <= Q^{2} < 13.75; #theta [deg]; p [GeV/c]", 200, 110, 160, 200, 0, 10);
+  h2_ThetavP_1375_15_e = new TH2F("ThetavP_1375_15_e","e' #theta v P for 13.75 <= Q^{2} < 15; #theta [deg]; p [GeV/c]", 200, 110, 160, 200, 0, 10);
+  h2_ThetavP_15_20_e = new TH2F("ThetavP_15_20_e","e' #theta v P for 15 <= Q^{2} < 20; #theta [deg]; p [GeV/c]", 200, 110, 160, 200, 0, 10);
+  h2_ThetavP_20_25_e = new TH2F("ThetavP_20_25_e","e' #theta v P for 20 <= Q^{2} < 25; #theta [deg]; p [GeV/c]", 200, 110, 160, 200, 0, 10);
+  h2_ThetavP_25_30_e = new TH2F("ThetavP_25_30_e","e' #theta v P for 25 <= Q^{2} < 30; #theta [deg]; p [GeV/c]", 200, 110, 160, 200, 0, 10);
+  h2_ThetavP_30_35_e = new TH2F("ThetavP_30_35_e","e' #theta v P for 30 <= Q^{2} < 35; #theta [deg]; p [GeV/c]", 200, 110, 160, 200, 0, 10);
+  // Pions
+  h2_ThetavP_0_5_pi = new TH2F("ThetavP_0_5_pi","#pi #theta v P for 0 <= Q^{2} < 5; #theta [deg]; p [GeV/c]", 200, 0, 60, 200, 0, 50);
+  h2_ThetavP_5_625_pi = new TH2F("ThetavP_5_625_pi","#pi #theta v P for 5 <= Q^{2} < 6.25; #theta [deg]; p [GeV/c]", 200, 0, 60, 200, 0, 50);
+  h2_ThetavP_625_75_pi = new TH2F("ThetavP_625_75_pi","#pi #theta v P for 6.25 <= Q^{2} < 7.5; #theta [deg]; p [GeV/c]", 200, 0, 60, 200, 0, 50);
+  h2_ThetavP_75_875_pi = new TH2F("ThetavP_75_875_pi","#pi #theta v P for 7.5 <= Q^{2} < 8.75; #theta [deg]; p [GeV/c]", 200, 0, 60, 200, 0, 50);
+  h2_ThetavP_875_10_pi = new TH2F("ThetavP_875_10_pi","#pi #theta v P for 8.75 <= Q^{2} < 10; #theta [deg]; p [GeV/c]", 200, 0, 60, 200, 0, 50);
+  h2_ThetavP_10_1125_pi = new TH2F("ThetavP_10_1125_pi","#pi #theta v P for 10 <= Q^{2} < 11.25; #theta [deg]; p [GeV/c]", 200, 0, 60, 200, 0, 50);
+  h2_ThetavP_1125_125_pi = new TH2F("ThetavP_1125_125_pi","#pi #theta v P for 11.25 <= Q^{2} < 12.5; #theta [deg]; p [GeV/c]", 200, 0, 60, 200, 0, 50);
+  h2_ThetavP_125_1375_pi = new TH2F("ThetavP_125_1375_pi","#pi #theta v P for 12.5 <= Q^{2} < 13.75; #theta [deg]; p [GeV/c]", 200, 0, 60, 200, 0, 50);
+  h2_ThetavP_1375_15_pi = new TH2F("ThetavP_1375_15_pi","#pi #theta v P for 13.75 <= Q^{2} < 15; #theta [deg]; p [GeV/c]", 200, 0, 60, 200, 0, 50);
+  h2_ThetavP_15_20_pi = new TH2F("ThetavP_15_20_pi","#pi #theta v P for 15 <= Q^{2} < 20; #theta [deg]; p [GeV/c]", 200, 0, 60, 200, 0, 50);
+  h2_ThetavP_20_25_pi = new TH2F("ThetavP_20_25_pi","#pi #theta v P for 20 <= Q^{2} < 25; #theta [deg]; p [GeV/c]", 200, 0, 60, 200, 0, 50);
+  h2_ThetavP_25_30_pi = new TH2F("ThetavP_25_30_pi","#pi #theta v P for 25 <= Q^{2} < 30; #theta [deg]; p [GeV/c]", 200, 0, 60, 200, 0, 50);
+  h2_ThetavP_30_35_pi = new TH2F("ThetavP_30_35_pi","#pi #theta v P for 30 <= Q^{2} < 35; #theta [deg]; p [GeV/c]", 200, 0, 60, 200, 0, 50);
   gDirectory->cd("../");
 
   h2_ZDC_XY = new TH2F("ZDC_XY", "ZDC XY", 200, -50, 50, 200, -50, 50);
@@ -543,7 +596,13 @@ int ECCE_DEMP::process_event(PHCompositeNode *topNode)
     h1_t_Dist->Fill(t);
     h1_xb_Dist->Fill(xb);
     h1_xi_Dist->Fill(xi);
-    h2_Q2vnTheta_Dist->Fill(Q2,n4Vect.Theta()*TMath::RadToDeg()); // added by Maggie Kerr, July 29, 2021 
+    h2_Q2vnTheta_Dist->Fill(Q2,n4Vect.Theta()*TMath::RadToDeg()); // added by Maggie Kerr, July 29, 2021
+    // added by Maggie Kerr, July 30, 2021
+    h2_xbvQ2_Dist->Fill(xb,Q2);
+    h2_tvQ2_Dist->Fill(t,Q2);
+    h2_WvQ2_Dist->Fill(W,Q2);
+    h2_xbvt_Dist->Fill(xb,t);
+    h2_tvxi_Dist->Fill(t,xi); 
 
     // added by Maggie Kerr, July 29, 2021
     h1_Q2Truth_Dist->Fill(((Q2-Q2_truth)/Q2_truth)*100);
@@ -664,6 +723,72 @@ int ECCE_DEMP::process_event(PHCompositeNode *topNode)
    h2_piNoTrackTruth_pxpy->Fill(pi4VectTruth.Px(),pi4VectTruth.Py());
    }
 
+   // added by Maggie Kerr, July 30, 2021
+   if (Q2 >= 0 && Q2 < 5) {
+   h2_ThetavP_0_5_n->Fill(n4Vect.Theta()*TMath::RadToDeg(),n4Vect.P());
+   h2_ThetavP_0_5_e->Fill(e4Vect.Theta()*TMath::RadToDeg(),e4Vect.P());
+   h2_ThetavP_0_5_pi->Fill(pi4Vect.Theta()*TMath::RadToDeg(),pi4Vect.P());
+   }
+   if(Q2 >= 5 && Q2 < 6.25) {
+   h2_ThetavP_5_625_n->Fill(n4Vect.Theta()*TMath::RadToDeg(),n4Vect.P());
+   h2_ThetavP_5_625_e->Fill(e4Vect.Theta()*TMath::RadToDeg(),e4Vect.P());
+   h2_ThetavP_5_625_pi->Fill(pi4Vect.Theta()*TMath::RadToDeg(),pi4Vect.P());
+   }
+   if(Q2 >= 6.25 && Q2 < 7.5) {
+   h2_ThetavP_625_75_n->Fill(n4Vect.Theta()*TMath::RadToDeg(),n4Vect.P());
+   h2_ThetavP_625_75_e->Fill(e4Vect.Theta()*TMath::RadToDeg(),e4Vect.P());
+   h2_ThetavP_625_75_pi->Fill(pi4Vect.Theta()*TMath::RadToDeg(),pi4Vect.P());
+   }
+   if(Q2 >= 7.5 && Q2 < 8.75) {
+   h2_ThetavP_75_875_n->Fill(n4Vect.Theta()*TMath::RadToDeg(),n4Vect.P());
+   h2_ThetavP_75_875_e->Fill(e4Vect.Theta()*TMath::RadToDeg(),e4Vect.P());
+   h2_ThetavP_75_875_pi->Fill(pi4Vect.Theta()*TMath::RadToDeg(),pi4Vect.P());
+   }
+   if(Q2 >= 8.75 && Q2 < 10) {
+   h2_ThetavP_875_10_n->Fill(n4Vect.Theta()*TMath::RadToDeg(),n4Vect.P());
+   h2_ThetavP_875_10_e->Fill(e4Vect.Theta()*TMath::RadToDeg(),e4Vect.P());
+   h2_ThetavP_875_10_pi->Fill(pi4Vect.Theta()*TMath::RadToDeg(),pi4Vect.P());
+   }
+   if(Q2 >= 10 && Q2 < 11.25) {
+   h2_ThetavP_10_1125_n->Fill(n4Vect.Theta()*TMath::RadToDeg(),n4Vect.P());
+   h2_ThetavP_10_1125_e->Fill(e4Vect.Theta()*TMath::RadToDeg(),e4Vect.P());
+   h2_ThetavP_10_1125_pi->Fill(pi4Vect.Theta()*TMath::RadToDeg(),pi4Vect.P());
+   }
+   if(Q2 >= 11.25 && Q2 < 12.5) {
+   h2_ThetavP_1125_125_n->Fill(n4Vect.Theta()*TMath::RadToDeg(),n4Vect.P());
+   h2_ThetavP_1125_125_e->Fill(e4Vect.Theta()*TMath::RadToDeg(),e4Vect.P());
+   h2_ThetavP_1125_125_pi->Fill(pi4Vect.Theta()*TMath::RadToDeg(),pi4Vect.P());
+   }
+   if(Q2 >= 12.5 && Q2 < 13.75) {
+   h2_ThetavP_125_1375_n->Fill(n4Vect.Theta()*TMath::RadToDeg(),n4Vect.P());
+   h2_ThetavP_125_1375_e->Fill(e4Vect.Theta()*TMath::RadToDeg(),e4Vect.P());
+   h2_ThetavP_125_1375_pi->Fill(pi4Vect.Theta()*TMath::RadToDeg(),pi4Vect.P());
+   }
+   if(Q2 >= 13.75 && Q2 < 15) {
+   h2_ThetavP_1375_15_n->Fill(n4Vect.Theta()*TMath::RadToDeg(),n4Vect.P());
+   h2_ThetavP_1375_15_e->Fill(e4Vect.Theta()*TMath::RadToDeg(),e4Vect.P());
+   h2_ThetavP_1375_15_pi->Fill(pi4Vect.Theta()*TMath::RadToDeg(),pi4Vect.P());
+   }
+   if(Q2 >= 15 && Q2 < 20) {
+   h2_ThetavP_15_20_n->Fill(n4Vect.Theta()*TMath::RadToDeg(),n4Vect.P());
+   h2_ThetavP_15_20_e->Fill(e4Vect.Theta()*TMath::RadToDeg(),e4Vect.P());
+   h2_ThetavP_15_20_pi->Fill(pi4Vect.Theta()*TMath::RadToDeg(),pi4Vect.P());
+   }
+   if(Q2 >= 20 && Q2 < 25) {
+   h2_ThetavP_20_25_n->Fill(n4Vect.Theta()*TMath::RadToDeg(),n4Vect.P());
+   h2_ThetavP_20_25_e->Fill(e4Vect.Theta()*TMath::RadToDeg(),e4Vect.P());
+   h2_ThetavP_20_25_pi->Fill(pi4Vect.Theta()*TMath::RadToDeg(),pi4Vect.P());
+   }
+   if(Q2 >= 25 && Q2 < 30) {
+   h2_ThetavP_25_30_n->Fill(n4Vect.Theta()*TMath::RadToDeg(),n4Vect.P());
+   h2_ThetavP_25_30_e->Fill(e4Vect.Theta()*TMath::RadToDeg(),e4Vect.P());
+   h2_ThetavP_25_30_pi->Fill(pi4Vect.Theta()*TMath::RadToDeg(),pi4Vect.P());
+   }
+   if(Q2 >= 30 && Q2 < 35) {
+   h2_ThetavP_30_35_n->Fill(n4Vect.Theta()*TMath::RadToDeg(),n4Vect.P());
+   h2_ThetavP_30_35_e->Fill(e4Vect.Theta()*TMath::RadToDeg(),e4Vect.P());
+   h2_ThetavP_30_35_pi->Fill(pi4Vect.Theta()*TMath::RadToDeg(),pi4Vect.P());
+   }
   }
 
   return Fun4AllReturnCodes::EVENT_OK;
