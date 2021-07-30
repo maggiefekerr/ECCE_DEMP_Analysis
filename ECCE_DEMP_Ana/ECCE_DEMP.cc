@@ -802,7 +802,7 @@ bool ECCE_DEMP::Check_ePi(PHCompositeNode* topNode)
   }
 }
 
-// added by Maggie Kerr, July 30, 2021
+// added by Maggie Kerr, July 30, 2021 - doesn't work??
 //***************************************************
 
 bool ECCE_DEMP::Check_e(PHCompositeNode* topNode)
@@ -840,7 +840,7 @@ bool ECCE_DEMP::Check_e(PHCompositeNode* topNode)
   }
 }
 
-// added by Maggie Kerr, July 30, 2021
+// added by Maggie Kerr, July 30, 2021 - doesn't work??
 //***************************************************
 
 bool ECCE_DEMP::Check_Pi(PHCompositeNode* topNode)
